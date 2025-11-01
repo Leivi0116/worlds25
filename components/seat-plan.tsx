@@ -203,7 +203,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h1 style={{ fontFamily: "Anton" }} className="text-5xl md:text-6xl text-primary mb-2 text-balance">
-            SELECT YOUR SEATS
+            SELECT VIP SEATS
           </h1>
           <p className="text-lg text-muted-foreground mb-6">
             Choose {quantity} {quantity === 1 ? "seat" : "seats"} for your {ticketType} ticket
@@ -211,7 +211,15 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap gap-6 justify-center mb-8">
+       
+
+        {/* Seat Maps */}
+        <Card className="flex items-center flex-col mb-8 bg-transparent border-0 ">
+           <div className=" inset-0 opacity-100 w-[50%]   mb-6">
+        <img src="/seats.png" alt="" className="w-full h-[10%] object-contain" />
+      </div>
+        </Card>
+         <div className="flex flex-wrap gap-6 justify-center mb-8">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-blue-500 rounded"></div>
             <span className="text-sm text-muted-foreground">Available</span>
@@ -222,17 +230,15 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
           </div>
         </div>
 
-        {/* Seat Maps */}
-        <Card className="border border-border bg-card p-8 mb-8">
-
+        <Card className="border border-border bg-card p-8 mb-8 ">
           {!loading ? (
-            renderFloor("ground", "GROUND FLOOR", ["J", "I", "H", "G", "F"])
+            renderFloor("ground", "VIP SEATS AVAILABLE", ["J", "I", "H", "G", "F"])
           ) : (
             <div className="text-center py-12">
               <p className="text-muted-foreground">Loading seat availability...</p>
             </div>
           )}
-          <p className="text-center p-4 bg-primary">SCREEN</p>
+          {/* <p className="text-center p-4 bg-primary">SCREEN</p> */}
         </Card>
 
         {/* Selection Summary and Buttons */}

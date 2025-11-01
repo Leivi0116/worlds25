@@ -471,7 +471,7 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                         }))
                       }
                     }}
-                    className="mt-2 "
+                    className="mt-2 border-white border-1"
                   />
                   <label htmlFor="terms" className="text-sm  cursor-pointer">
                     I understand that all ticket sales are final and non-refundable, and I agree to the event

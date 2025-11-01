@@ -152,17 +152,20 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
               />
             </div>
 
-            <div className="p-6 space-y-4">
+            <div className="p-4 space-y-4">
               <div>
                 <h3 style={{ fontFamily: "Anton" }} className="text-6xl text-white uppercase mb-2">
                   {ticket.type}
                 </h3>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-300 py-2">
                   REMAINING
                   <br />
-                  <span className={ticket.available === 0 ? "text-red-500" : "text-white"}>
+                  <p className="text-2xl">
+                  <span
+                    className={ticket.available === 0 ? "text-red-500" : "text-white"}>
                     {ticket.available === 0 ? "SOLD OUT" : `${ticket.available} LEFT`}
                   </span>
+                  </p>
                 </p>
               </div>
 
