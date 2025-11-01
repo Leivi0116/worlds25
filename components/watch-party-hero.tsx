@@ -33,10 +33,10 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
               />
 
               <div className="space-y-2">
-                <h1 className="font-anton text-[160px] sm:text-[100px] lg:text-[200px] leading-none text-white">
+                <h1 className="font-anton text-[150px] sm:text-[100px] lg:text-[200px] leading-none text-white">
                   WATCH
                 </h1>
-                <h1 className="font-anton text-[160px] sm:text-[100px] lg:text-[200px] leading-none text-white  ">
+                <h1 className="font-anton text-[150px] sm:text-[100px] lg:text-[200px] leading-none text-white  ">
                   PARTY
                 </h1>
               </div>
