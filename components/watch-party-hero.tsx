@@ -55,6 +55,9 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
                   BUY TICKETS
                 </Button>
               </div>
+                   <div>
+          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+        </div>
             </div>
 
             
