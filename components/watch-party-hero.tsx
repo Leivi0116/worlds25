@@ -46,6 +46,7 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
                 <p className="text-base leading-none sm:text-lg font-semibold">November 9, 2025 | 2:00 PM</p>
                 <p className="text-base leading-none sm:text-lg font-semibold">LIMITED SEATS AVAILABLE</p>
               </div>
+              
 
               <div className="pt-4">
                 <Button
@@ -54,13 +55,18 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
                 >
                   BUY TICKETS
                 </Button>
+                
               </div>
+              <div>
+          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+        </div>
             </div>
-
-            
           </div>
         </div>
       </div>
+      
     </div>
+    
   )
+  
 }

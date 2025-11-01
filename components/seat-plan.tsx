@@ -214,7 +214,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
        
 
         {/* Seat Maps */}
-        <Card className="flex items-center flex-col mb-8 bg-transparent border-0 ">
+        <Card className="flex items-center flex-col mb-8 bg-transparent border-0 shadow-none">
            <div className=" inset-0 opacity-100 w-[50%]   mb-6">
         <img src="/seats.png" alt="" className="w-full h-[10%] object-contain" />
       </div>
@@ -281,6 +281,9 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
           </div>
         </div>
       </div>
+       <div className="center m-8">
+          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+        </div>
     </div>
   )
 }

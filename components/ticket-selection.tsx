@@ -186,9 +186,14 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
                 {ticket.available === 0 ? "SOLD OUT" : "BUY TICKETS"}
               </Button>
             </div>
+            
           </Card>
+          
         ))}
       </div>
+           <div className="center mt-8">
+          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+        </div>
     </div>
   )
 }
