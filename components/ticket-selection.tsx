@@ -160,12 +160,20 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
                 <p className="text-sm text-gray-300 py-2">
                   REMAINING
                   <br />
+<<<<<<< HEAD
                   <p className="text-2xl">
                   <span
                     className={ticket.available === 0 ? "text-red-500" : "text-white"}>
                     {ticket.available === 0 ? "SOLD OUT" : `${ticket.available} LEFT`}
                   </span>
                   </p>
+=======
+                   <p className="text-2xl ">
+                  <span className={ticket.available === 0 ? "text-red-500" : "text-white"}>
+                    {ticket.available === 0 ? "SOLD OUT" : `${ticket.available} LEFT`}
+                  </span>
+                    </p>
+>>>>>>> d0cbad0ae53a11d923c9d30fd5470716e916edd2
                 </p>
               </div>
 

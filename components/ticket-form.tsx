@@ -471,7 +471,11 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                         }))
                       }
                     }}
+<<<<<<< HEAD
                     className="mt-2 border-white border-1"
+=======
+                    className="mt-2 border-white border-1 "
+>>>>>>> d0cbad0ae53a11d923c9d30fd5470716e916edd2
                   />
                   <label htmlFor="terms" className="text-sm  cursor-pointer">
                     I understand that all ticket sales are final and non-refundable, and I agree to the event
@@ -498,7 +502,7 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                     disabled={isSubmitting || timeRemaining === 0}
                     className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold uppercase tracking-wider shadow-md"
                   >
-                    {isSubmitting ? "Processing..." : "✅ Confirm & Submit"}
+                    {isSubmitting ? "Processing..." : "Confirm & Submit"}
                   </Button>
                 </div>
               </form>
