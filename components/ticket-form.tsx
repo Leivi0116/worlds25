@@ -498,7 +498,7 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                     disabled={isSubmitting || timeRemaining === 0}
                     className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold uppercase tracking-wider shadow-md"
                   >
-                    {isSubmitting ? "Processing..." : "✅ Confirm & Submit"}
+                    {isSubmitting ? "Processing..." : "Confirm & Submit"}
                   </Button>
                 </div>
               </form>
