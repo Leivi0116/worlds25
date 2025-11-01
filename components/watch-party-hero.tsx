@@ -57,9 +57,9 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
                 </Button>
                 
               </div>
-              <div>
-          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
-        </div>
+              <div className="center mt-8">
+           <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+         </div>
             </div>
           </div>
         </div>
