@@ -282,7 +282,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
         </div>
       </div>
        <div className="center m-8">
-          <p>© All rights reserved Rumble Royale | L E 1 V I</p>
+          <p>© All rights reserved RUMBLE ROYALE | L E 1 V I</p>
         </div>
     </div>
   )
