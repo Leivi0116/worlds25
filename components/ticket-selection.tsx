@@ -160,9 +160,11 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
                 <p className="text-sm text-gray-300">
                   REMAINING
                   <br />
+                   <p className="text-2xl ">
                   <span className={ticket.available === 0 ? "text-red-500" : "text-white"}>
                     {ticket.available === 0 ? "SOLD OUT" : `${ticket.available} LEFT`}
                   </span>
+                    </p>
                 </p>
               </div>
 
