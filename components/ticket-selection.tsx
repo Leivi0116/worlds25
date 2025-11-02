@@ -117,7 +117,7 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
   if (loading)
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <p className="text-white">Loading tickets...</p>
+        <p className="text-white">Summoning your Tickets...</p>
       </div>
     )
 
