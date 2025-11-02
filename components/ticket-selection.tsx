@@ -117,7 +117,7 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
   if (loading)
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <p className="text-white">Summoning your Tickets...</p>
+        <p className="text-white">Summoning your ticket...</p>
       </div>
     )
 
@@ -130,10 +130,29 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
 
   return (
     <div className="min-h-screen bg-[#1F1F1F] p-4 md:p-8">
+
+
+      <div className="absolute inset-0 opacity-100">
+        <img src="/ticket-header.png" alt="" className="w-full h-[70%] object-cover" />
+      </div>
+      <div className="text-center mb-16 my-[150px] relative w-full">
+        <h1 style={{ fontFamily: "Anton" }} className="text-[150px] leading-none text-white mb-8"> WATCH PARTY </h1>
+        <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 py-10">
+           {[ ["LOL", "ESPORTS"], ["WATCH PARTY &", "MINI FAN FEST"], ["MEET AND", "GREETS"], ["EXCLUSIVE", "MERCH"], ["NOVEMBER", "9TH"], ["EARN YOUR", "LEGACY"], ].map(([line1, line2], i) => ( 
+          <div key={i} className="text-left"> 
+          <p style={{ fontFamily: "Montserrat" }} className="text-xs text-[#CBAD90] uppercase tracking-widest"> {line1} </p> 
+          <p style={{ fontFamily: "Montserrat" }} className="text-xs text-[#CBAD90] uppercase tracking-widest"> {line2} </p> 
+          </div> ))}
+        </div>
+      </div>
+
+
+
+
       <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
         {tickets.map((ticket) => (
-          <Card key={ticket.id} className="bg-[#1F1F1F] overflow-hidden">
-            <div className="relative h-72 md:h-96 overflow-hidden bg-muted">
+          <Card key={ticket.id} className="bg-[#1F1F1F] border-0 overflow-hidden">
+            <div className="relative h-92 md:h-86 overflow-hidden bg-muted">
               <img
                 src={TICKET_IMAGES[ticket.type] || "/placeholder.svg"}
                 alt={ticket.type}
