@@ -49,12 +49,18 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
               
 
               <div className="pt-4">
+
+
+                <p>Second Batch Will announce Soon..</p>
+
+{/* 
+                
                 <Button
                   onClick={onContinue}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-7 text-lg rounded-none"
                 >
                   BUY TICKETS
-                </Button>
+                </Button> */}
                 
               </div>
               <div className="center mt-8">
