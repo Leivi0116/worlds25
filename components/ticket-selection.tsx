@@ -83,7 +83,7 @@ export default function TicketSelection({ onSelectTicket }: TicketSelectionProps
       } catch (err) {
         console.warn("Failed to refresh ticket availability:", err)
       }
-    }, 1000) 
+    }, 5000) 
 
     return () => clearInterval(interval)
   }, [])
