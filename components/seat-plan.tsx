@@ -23,8 +23,15 @@ interface Seat {
 const generateSeats = (): Seat[] => {
   const seats: Seat[] = []
 
-  // Ground Floor rows J–F with VIP sections
+  // Ground Floor rows J–Q with VIP sections
   const groundFloorRows = [
+    { row: "Q", standard: 0, vip: 21, invited: 0 },
+    { row: "P", standard: 0, vip: 21, invited: 0 },
+    { row: "O", standard: 0, vip: 21, invited: 0 },
+    { row: "N", standard: 0, vip: 21, invited: 0 },
+    { row: "M", standard: 0, vip: 21, invited: 0 },
+    { row: "L", standard: 0, vip: 21, invited: 0 },
+    { row: "K", standard: 0, vip: 21, invited: 0 },
     { row: "J", standard: 0, vip: 21, invited: 0 },
     { row: "I", standard: 0, vip: 21, invited: 0 },
     { row: "H", standard: 0, vip: 21, invited: 0 },
@@ -244,7 +251,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
 
         <Card className="border border-border bg-card p-8 mb-8 ">
           {!loading ? (
-            renderFloor("ground", "VIP SEATS AVAILABLE", ["J", "I", "H", "G", "F"])
+            renderFloor("ground", "VIP SEATS AVAILABLE", ["Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F"])
           ) : (
             <div className="text-center py-12">
               <p className="text-muted-foreground">Loading seat availability...</p>
