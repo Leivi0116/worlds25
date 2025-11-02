@@ -23,22 +23,18 @@ interface Seat {
 const generateSeats = (): Seat[] => {
   const seats: Seat[] = []
 
-  // Second Floor: A-M rows (all standard)
-
-  // Ground Floor: A-R rows with VIP sections
+  // Ground Floor rows J–F with VIP sections
   const groundFloorRows = [
-    { row: "J", standard: 0, vip: 21, invited: 0 }, // 12-32 for VIP (seats 12-32)
-    { row: "I", standard: 0, vip: 21, invited: 0 }, // 12-32 for VIP
-    { row: "H", standard: 0, vip: 21, invited: 0 }, // 12-32 for VIP
-    { row: "G", standard: 0, vip: 21, invited: 0 }, // 12-32 for VIP
-    { row: "F", standard: 0, vip: 21, invited: 0 }, // 12-32 for VIP, 1 invited
+    { row: "J", standard: 0, vip: 21, invited: 0 },
+    { row: "I", standard: 0, vip: 21, invited: 0 },
+    { row: "H", standard: 0, vip: 21, invited: 0 },
+    { row: "G", standard: 0, vip: 21, invited: 0 },
+    { row: "F", standard: 0, vip: 21, invited: 0 },
   ]
 
-  // Add ground floor seats
   groundFloorRows.forEach((rowData) => {
     let seatNum = 12
 
-    // Standard seats
     for (let i = 0; i < (rowData.standard || 0); i++) {
       seats.push({
         id: `${rowData.row}${seatNum}`,
@@ -50,7 +46,6 @@ const generateSeats = (): Seat[] => {
       seatNum++
     }
 
-    // VIP seats (numbered 12-32)
     for (let i = 0; i < (rowData.vip || 0); i++) {
       seats.push({
         id: `${rowData.row}${seatNum}`,
@@ -62,7 +57,6 @@ const generateSeats = (): Seat[] => {
       seatNum++
     }
 
-    // Invited seats
     for (let i = 0; i < (rowData.invited || 0); i++) {
       seats.push({
         id: `${rowData.row}${seatNum}`,
@@ -91,20 +85,34 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
+  // 🔁 Real-time booked seats updater (1-second interval)
   useEffect(() => {
+    let isMounted = true
+
     const fetchBookedSeats = async () => {
       try {
-        const response = await fetch("/api/tickets/booked")
+        const response = await fetch("/api/tickets/booked", { cache: "no-store" })
         const data = await response.json()
-        setBookedSeats(new Set(data.bookedSeats || []))
+        if (isMounted) {
+          setBookedSeats(new Set(data.bookedSeats || []))
+          setLoading(false)
+        }
       } catch (error) {
         console.error("[v0] Error fetching booked seats:", error)
-      } finally {
-        setLoading(false)
       }
     }
 
+    // Initial fetch
     fetchBookedSeats()
+
+    // Auto-refresh every 1 second
+    const interval = setInterval(fetchBookedSeats, 1000)
+
+    // Cleanup
+    return () => {
+      isMounted = false
+      clearInterval(interval)
+    }
   }, [])
 
   useEffect(() => {
@@ -166,7 +174,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
                       (filterType === "vip" && seat.type === "vip"))
 
                   return (
-                    <div key={seat.id} className="relative group">
+                    <div key={seat.id} className="relative group transition-opacity duration-300">
                       <button
                         onClick={() => isClickable && handleSeatClick(seat)}
                         disabled={!isClickable}
@@ -176,7 +184,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
                           ${getSeatOpacity(seat)}
                           ${isSelected ? "scale-125 ring-2 ring-primary ring-offset-1" : ""}
                           ${isClickable && !isSelected ? "hover:scale-110 cursor-pointer" : ""}
-                          ${isTaken ? "cursor-not-allowed" : ""}
+                          ${isTaken ? "cursor-not-allowed opacity-50" : ""}
                         `}
                         title={isTaken ? "Seat taken" : `Seat ${seat.id}`}
                         onMouseEnter={() => isTaken && setHoveredSeat(seat.id)}
@@ -210,16 +218,20 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
           </p>
         </div>
 
-        {/* Legend */}
-       
+        {/* Updating indicator */}
+        {!loading && (
+          <p className="text-center text-xs text-muted-foreground mb-3 animate-pulse">
+            Updating seat availability...
+          </p>
+        )}
 
-        {/* Seat Maps */}
+        {/* Legend */}
         <Card className="flex items-center flex-col mb-8 bg-transparent border-0 shadow-none">
-           <div className=" inset-0 opacity-100 w-[50%]   mb-6">
-        <img src="/seats.png" alt="" className="w-full h-[10%] object-contain" />
-      </div>
+          <div className="inset-0 opacity-100 w-[50%] mb-6">
+            <img src="/seats.png" alt="" className="w-full h-[10%] object-contain" />
+          </div>
         </Card>
-         <div className="flex flex-wrap gap-6 justify-center mb-8">
+        <div className="flex flex-wrap gap-6 justify-center mb-8">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-blue-500 rounded"></div>
             <span className="text-sm text-muted-foreground">Available</span>
@@ -238,7 +250,6 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
               <p className="text-muted-foreground">Loading seat availability...</p>
             </div>
           )}
-          {/* <p className="text-center p-4 bg-primary">SCREEN</p> */}
         </Card>
 
         {/* Selection Summary and Buttons */}
@@ -281,9 +292,10 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
           </div>
         </div>
       </div>
-       <div className="center m-8">
-          <p>© All rights reserved RUMBLE ROYALE | L E 1 V I</p>
-        </div>
+
+      <div className="center m-8">
+        <p>© All rights reserved RUMBLE ROYALE | L E 1 V I</p>
+      </div>
     </div>
   )
 }
