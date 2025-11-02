@@ -6,7 +6,7 @@ export async function GET() {
     const tickets = await getTicketAvailability()
     return NextResponse.json(tickets)
   } catch (error) {
-    console.error("[v0] Error fetching ticket availability:", error)
-    return NextResponse.json({ error: "Failed to fetch ticket availability" }, { status: 500 })
+    console.error(" Error fetching ticket availability:", error)
+    return NextResponse.json({ error: "Stay Calm Summoner. Try to reload the page." }, { status: 500 })
   }
 }
