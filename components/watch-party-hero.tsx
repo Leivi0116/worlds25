@@ -51,7 +51,7 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
               <div className="pt-4">
 
 
-                <p>Second Batch Will announce Soon..</p>
+                <p>Thank you for your excitement, Summoners! <br />The official ticket selling will be announced soon on the official League of Legends Philippines social media pages</p>
 
 {/* 
                 
