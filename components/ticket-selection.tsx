@@ -20,8 +20,8 @@ interface TicketSelectionProps {
 
 const TICKET_DESCRIPTIONS: Record<string, string> = {
   REGULAR:
-    "Access to Monster Energy Drink, Sticker Set, Balloon Clapper, Poro Keychain, Foil Ticket, Tyvec, and Raffle Entry",
-  VIP: "Access to Monster Energy Drink, Sticker Set, Balloon Clapper, Poro Keychain, Foil Ticket, Tyvec, and Raffle Entry + Shirt",
+    "Access to Sticker Set, Balloon Clapper, Poro Keychain, Foil Ticket, Tyvec, and Raffle Entry",
+  VIP: "Access to  Sticker Set, Balloon Clapper, Poro Keychain, Foil Ticket, Tyvec, and Raffle Entry + Shirt",
 }
 
 const TICKET_PRICES: Record<string, number> = {
