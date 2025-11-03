@@ -50,18 +50,18 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
 
               <div className="pt-4">
 
+{/* 
+                <p>Thank you for your excitement, Summoners! <br />The official ticket selling will be announced soon on the official League of Legends Philippines social media pages</p> */}
 
-                <p>Thank you for your excitement, Summoners! <br />The official ticket selling will be announced soon on the official League of Legends Philippines social media pages</p>
 
-
-                {/* 
+              
                 <Button
                   onClick={onContinue}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-7 text-lg rounded-none"
                 >
                   BUY TICKETS
                 </Button> 
-                 */}
+                 
               </div>
               <div className="center mt-8">
            <p>© All rights reserved RUMBLE ROYALE</p>
