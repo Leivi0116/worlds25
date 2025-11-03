@@ -113,7 +113,7 @@ export default function SeatPlan({ ticketType, quantity, onConfirm, onBack }: Se
     fetchBookedSeats()
 
     // Auto-refresh every 1 second
-    const interval = setInterval(fetchBookedSeats, 5000)
+    const interval = setInterval(fetchBookedSeats, 10000)
 
     // Cleanup
     return () => {
