@@ -51,7 +51,13 @@ export default function WatchPartyHero({ onContinue }: WatchPartyHeroProps) {
               <div className="pt-4">
 
 
-                <p>Thank you for your excitement, Summoners! <br />The official ticket selling will be announced soon on the official League of Legends Philippines social media pages</p> 
+                <p>Thank you for your excitement, Summoners! <br />
+                  All tickets are sold out!.
+                  For assistance or inquiries, please contact us via email.
+                
+                <br/>
+                  email : worlds25tickets@rumbleroyale.gg
+                </p> 
 
 
               
