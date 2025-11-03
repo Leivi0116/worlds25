@@ -349,7 +349,7 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                         </div>
                       <p className="text-lg mb-2 text-center mb-2">Account Number: **** **** 9999</p>
                       <p className="text-xs text-destructive font-semibold">
-                        ⚠️ Please include your Payment Reference Code in the transaction note.
+                        ⚠️ Please include your Payment Reference Code in the transaction Remarks.
                       </p>
                     </div>
                   </div>
