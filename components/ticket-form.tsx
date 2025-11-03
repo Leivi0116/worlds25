@@ -335,7 +335,7 @@ export default function TicketForm({ ticket, seats, onSubmit, onBack }: TicketFo
                       <div className=" opacity-100 m-10">
                           <img src="/gcash.png" alt="" className="w-full h-full object-cover " />
                         </div>
-                      <p className="text-lg mb-2 text-center">Number: 095* ****026 </p>
+                      <p className="text-lg mb-2 text-center">Number: 0929 397 ****</p>
                       
                       <p className="text-xs text-destructive font-semibold">
                         ⚠️ Important: Type your Payment Reference Code in the GCash note before sending.
